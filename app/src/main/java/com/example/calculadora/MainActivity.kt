@@ -83,14 +83,15 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             unit = u
             /*binding.editTextResult.setText("")*/
             deleteAll()
-            var result: Double = when (unit) {
-                "km" -> convertNumber/1000
-                "hm" -> convertNumber/100
-                "dam" -> convertNumber/10
-                "dm" -> convertNumber*10
-                "cm" -> convertNumber*100
-                "mm" -> convertNumber*1000
-                else -> 0.0
+            var result = 0.0
+            when (unit) {
+                "km" -> {result = convertNumber/1000; Toast.makeText(this,"Kilometros",Toast.LENGTH_SHORT).show()}
+                "hm" -> {result = convertNumber/100; Toast.makeText(this,"Hectometros",Toast.LENGTH_SHORT).show()}
+                "dam" -> {result = convertNumber/10; Toast.makeText(this,"Decametros",Toast.LENGTH_SHORT).show()}
+                "dm" -> {result = convertNumber*10; Toast.makeText(this,"Decimetros",Toast.LENGTH_SHORT).show()}
+                "cm" -> {result = convertNumber*100; Toast.makeText(this,"Centimetros",Toast.LENGTH_SHORT).show()}
+                "mm" -> {result = convertNumber*1000; Toast.makeText(this,"Milimetros",Toast.LENGTH_SHORT).show()}
+                else -> result = 0.0
             }
             binding.editTextResult.setText(result.toString())
             convertNumber = 0.0
