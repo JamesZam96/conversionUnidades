@@ -8,8 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.calculadora.databinding.ActivityMainBinding
-import java.lang.StringBuilder
-import kotlin.math.pow
+
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
 
@@ -23,7 +22,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         binding = ActivityMainBinding.inflate(layoutInflater)
-        /*setContentView(R.layout.activity_main)*/
         setContentView(binding.root)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -81,7 +79,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         if (binding.editTextResult.text.toString().isNotEmpty()) {
             convertNumber = binding.editTextResult.text.toString().toDouble()
             unit = u
-            /*binding.editTextResult.setText("")*/
             deleteAll()
             var result = 0.0
             when (unit) {
